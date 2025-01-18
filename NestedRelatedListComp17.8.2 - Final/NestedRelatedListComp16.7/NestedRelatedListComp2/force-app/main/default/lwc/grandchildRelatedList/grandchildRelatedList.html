@@ -1,0 +1,44 @@
+<!-- grandchildRelatedList.html -->
+<template>
+    <div class="slds-p-around_medium slds-border_top">
+        <!-- Search inputs for each column -->
+        <div class="slds-grid slds-gutters slds-m-bottom_small">
+            <template for:each={columns} for:item="column">
+                <template if:true={column.fieldName}>
+                    <div key={column.fieldName} class="slds-col">
+                        <lightning-input 
+                            type="search" 
+                            label={column.label}
+                            placeholder={column.label}
+                            data-field={column.fieldName}
+                            onchange={handleSearch}>
+                        </lightning-input>
+                    </div>
+                </template>
+            </template>
+        </div>
+
+        <!-- Data table -->
+        <lightning-datatable
+            key-field="Id"
+            data={filteredRecords}
+            columns={columns}
+            hide-checkbox-column
+            sorted-by={sortBy}
+            sorted-direction={sortDirection}
+            onsort={handleSort}
+            onrowaction={handleRowAction}
+        >
+        </lightning-datatable>
+    </div>
+
+    <template if:true={isEditModalOpen}>
+        <c-edit-record-modal
+            record-id={recordIdToEdit}
+            object-api-name={grandchildObjectApiName}
+            field-set={grandchildFieldset}
+            onclose={closeEditModal}
+            onrecordupdated={handleRecordUpdated}>
+        </c-edit-record-modal>
+    </template>
+</template>

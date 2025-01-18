@@ -1,0 +1,114 @@
+/* nestedRelatedList.css */
+.slds-card {
+    width: 100%;
+    max-width: 100%;
+}
+
+.slds-hint-parent {
+    background-color: #e1e3e6;
+}
+
+.slds-hint-child {
+    background-color: #eef1f6;
+    padding-left: 2rem;
+}
+
+.slds-hint-grandchild {
+    background-color: #e4e9f1;
+    padding-left: 4rem;
+}
+
+.slds-table_tree__item {
+    display: flex;
+    align-items: center;
+}
+
+.slds-table_tree__button {
+    margin-right: 0.5rem;
+}
+
+.slds-table__col-header {
+    text-align: left;
+    padding-left: 1rem;
+}
+
+.table-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.slds-table_fixed-layout {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.slds-table {
+    min-width: 100%;
+}
+
+.slds-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #ffffff;
+}
+
+.slds-table td:last-child,
+.slds-table th:last-child {
+    padding-right: 0.5rem;
+}
+
+.slds-is-resizable {
+    position: relative;
+}
+
+.slds-resizable__handle {
+    position: absolute;
+    right: -4px;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background: transparent;
+    cursor: col-resize;
+    z-index: 1;
+}
+
+.slds-resizable__divider {
+    position: absolute;
+    right: 3px;
+    height: 100%;
+    width: 1px;
+    background: #d8dde6;
+}
+
+.slds-th__action {
+    position: relative;
+    padding-right: 2rem; /* Increase padding to accommodate the search icon */
+}
+
+th {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.search-input {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    background-color: white;
+}
+
+.search-input.show {
+    display: block;
+}

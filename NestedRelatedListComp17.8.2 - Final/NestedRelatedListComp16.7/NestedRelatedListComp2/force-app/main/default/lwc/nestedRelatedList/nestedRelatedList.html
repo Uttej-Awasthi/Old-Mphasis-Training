@@ -1,0 +1,132 @@
+<!-- nestedRelatedList.html -->
+<template>
+    <div class="slds-card">
+        <div class="slds-card__header slds-grid slds-grid_align-spread">
+            <div class="slds-grid slds-grid_align-center">
+                <lightning-icon icon-name="standard:related_list" size="large" class="slds-m-right_x-small"></lightning-icon>
+                <div>
+                           <!-- New section to display Child Object API Name -->
+                           <p class="slds-text-body_small slds-m-top_xx-small" title={objectHierarchyTitle}>
+                            {parentObjectApiName} &gt; {childObjectApiName} &gt; {grandchildObjectApiName} Records
+                        </p>
+                    <h1 class="slds-card__header-title slds-text-heading_small">Nested Related List</h1>
+                    <p class="slds-text-body_small slds-m-top_xx-small">
+                        Total Records: {totalRecords} &bull; Last Updated: {lastUpdatedFormatted}
+                    </p>
+                </div>
+            </div>
+            <div class="slds-form-element">
+                <!-- <div class="slds-form-element__control">
+                    <input type="text" class="slds-input" placeholder="Search..." onkeyup={handleSearch}>
+                </div> -->
+            </div>
+        </div>
+        <div class="slds-card__body slds-card__body_inner">
+            <div class="table-container">
+                <table class="slds-table slds-table_bordered slds-table_fixed-layout slds-tree slds-table_tree" role="treegrid" aria-label="Related Records">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th scope="col" class="slds-text-title_caps slds-p-horizontal_small slds-tree__cell"></th>
+                            <template for:each={columns} for:item="column">
+                                <th key={column.fieldName} 
+                                class="slds-is-resizable slds-is-sortable slds-cell_action-mode" 
+                                scope="col"
+                                style={column.style}
+                                data-field={column.fieldName}>
+                                <div class="slds-th__action">
+                                    <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="0" onclick={handleSort} data-field={column.fieldName}>
+                                        <span class="slds-assistive-text">Sort by: </span>
+                                        <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                            <span class="slds-truncate" title={column.label}>{column.label}</span>
+                                            <span class="slds-icon_container slds-icon-utility-arrowdown">
+                                                <lightning-icon icon-name={column.sortIconName} size="xx-small" class="slds-is-sortable__icon"></lightning-icon>
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <lightning-icon icon-name="utility:search" size="x-small" class="search-icon" onclick={toggleSearchInput} data-field={column.fieldName}></lightning-icon>
+                                    <div class={column.searchInputClass}>
+                                        <lightning-input type="search" variant="label-hidden" placeholder="Search..." onchange={handleColumnSearch} data-field={column.fieldName}></lightning-input>
+                                    </div>
+                                </div>
+                                <div class="slds-resizable">
+                                    <input type="range" aria-label={column.label} class="slds-resizable__input slds-assistive-text" 
+                                           id={column.fieldName} max="1000" min="20" tabindex="0" />
+                                    <span class="slds-resizable__handle" onmousedown={handleResizeStart} data-field={column.fieldName}>
+                                        <span class="slds-resizable__divider"></span>
+                                    </span>
+                                </div>
+                            </th>
+                            </template>
+                            <th scope="col" class="slds-text-title_caps">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={flattenedRecords} for:item="record">
+                            <tr key={record.id} class={record.rowClass} aria-level={record.level} aria-expanded={record.isExpanded}>
+                                <td class="slds-p-horizontal_small slds-tree__cell">
+                                    <div class="slds-flex slds-align_center">
+                                        <template if:true={record.hasChildren}>
+                                            <button class="slds-button slds-button_icon slds-button_icon-x-small slds-m-right_x-small"
+                                                    onclick={handleRowToggle}
+                                                    data-id={record.id}
+                                                    aria-expanded={record.isExpanded}>
+                                                <lightning-icon icon-name={record.buttonIcon} alternative-text="Toggle" size="x-small"></lightning-icon>
+                                            </button>
+                                        </template>
+                                    </div>
+                                </td>
+                                <template for:each={record.fields} for:item="field">
+                                    <td key={field.name} class="slds-p-horizontal_small">
+                                        <div class="slds-truncate" title={field.value}>
+                                            <template if:true={field.isNameField}>
+                                                <a href="javascript:void(0);" onclick={handleNameClick} data-record-id={record.id} data-object-name={childObjectApiName}>{field.value}</a>
+                                            </template>
+                                            <template if:false={field.isNameField}>
+                                                {field.value}
+                                            </template>
+                                        </div>
+                                    </td>
+                                </template>
+                                <td>
+                                    <lightning-button-menu alternative-text="Actions" icon-name="utility:down" 
+                                        onselect={handleRowAction} data-record-id={record.id} class="slds-m-left_x-small">
+                                        <lightning-menu-item label="Edit" value="edit"></lightning-menu-item>
+                                        <lightning-menu-item label="Delete" value="delete"></lightning-menu-item>
+                                    </lightning-button-menu>
+                                </td>
+                            </tr>
+                            <template if:true={record.isExpanded}>
+                                <tr key={record.grandchildKey}>
+                                    <td colspan={columnCount}>
+                                        <c-grandchild-related-list
+                                            child-id={record.id}
+                                            grandchild-object-api-name={grandchildObjectApiName}
+                                            grandchild-fieldset={grandchildFieldset}
+                                            child-field={childField}>
+                                        </c-grandchild-related-list>
+                                    </td>
+                                </tr>
+                            </template>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="slds-grid slds-grid_align-center slds-m-top_medium">
+            <lightning-button-group>
+                <lightning-button label="Previous" onclick={handlePrevious} disabled={isPreviousDisabled}></lightning-button>
+                <lightning-button label="Next" onclick={handleNext} disabled={isNextDisabled}></lightning-button>
+            </lightning-button-group>
+        </div>
+    </div>
+
+    <template if:true={isEditModalOpen}>
+        <c-edit-record-modal 
+        record-id={recordIdToEdit} 
+        object-api-name={objectApiNameToEdit}
+        field-set={editFieldset}
+        onclose={closeModal}
+        onrecordupdated={handleRecordUpdated}>
+    </c-edit-record-modal>
+    </template>
+</template>

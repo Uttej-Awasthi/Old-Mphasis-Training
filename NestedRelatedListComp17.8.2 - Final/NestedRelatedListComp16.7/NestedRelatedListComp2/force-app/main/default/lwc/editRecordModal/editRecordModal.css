@@ -1,0 +1,20 @@
+/* editRecordModal.css */
+.slds-modal__container {
+    max-width: 70rem !important;
+    width: 80% !important;
+}
+
+.slds-modal__content {
+    max-height: 60vh !important;
+    overflow-y: auto;
+}
+
+@media (max-width: 48em) {
+    .slds-modal__container {
+        width: 100% !important;
+    }
+    
+    .slds-col {
+        width: 100% !important;
+    }
+}

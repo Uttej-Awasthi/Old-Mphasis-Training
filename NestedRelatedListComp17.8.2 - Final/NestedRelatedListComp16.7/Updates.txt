@@ -1,0 +1,71 @@
+https://www.lightningdesignsystem.com/components/tree-grid/
+Expanded#
+
+Allignment
+Expand/Collapse
+improved expand/collapse functionality for both child and grandchild records
+
+This updated code includes:
+
+Sorting functionality (Improved)
+Searching capability (handleSearch method)
+Edit and delete buttons (handleEdit and handleDelete methods)
+Pagination (handlePrevious and handleNext methods)
+Error handling with toast messages
+
+Row Action implementation now allows users to perform Edit/Delete actions directly from the list
+Delete Action is working.
+Edit Modal Popup working.
+Included Save Button in popup
+
+Table Column Resizing Working
+Name Data Type field clickable
+Grandchild Records are now getting Updated.
+
+Created a Child component for to display grandchild records.
+
+You can add some more css for horizontally&Vertically Scrollable functionality-
+.table-container {
+    max-height: 400px; /* Adjust this value to set the desired height */
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.slds-table_fixed-layout {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.slds-table {
+    min-width: 100%;
+}
+
+.slds-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #ffffff;
+}
+
+.slds-table td:last-child,
+.slds-table th:last-child {
+    padding-right: 0.5rem;
+}
+
+Added Column Sorting, Edit Records in Grandchild Table.
+Immediate update records.
+Improved UI.
+Added Column Searching feature in Grandchild table.
+
+
+Implemented column search functionality for nestedRelatedList.
+search icon improved.
+
+Created a Standard Icon.
+Parent>Child>Grandchild Records
+Last Update and Total records.
+
+Generic and reusable.
+
+Edited Records in Parent component will reflect immediately.
+Edited Records in Child component will reflect immediately.
