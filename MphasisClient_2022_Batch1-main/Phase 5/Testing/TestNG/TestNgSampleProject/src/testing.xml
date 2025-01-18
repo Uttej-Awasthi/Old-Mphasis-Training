@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="true" name="MyTestingApplication">
+  <test name="MyTest">
+    <classes>
+  
+      <class name="test.TestNgHook"/>
+  	  <class name="test.OperationTest">
+  	  	<methods>
+  	  		<!--  <exclude name="testSub"/> -->
+  	  		<exclude name="test.*"></exclude>
+  	  		<include name="testAdd"></include>
+  	  	</methods>
+  	  </class>
+  	  <class name="test.ProductServiceTest"/>	
+    </classes>
+  </test> <!-- Test -->
+  
+</suite> <!-- Suite -->

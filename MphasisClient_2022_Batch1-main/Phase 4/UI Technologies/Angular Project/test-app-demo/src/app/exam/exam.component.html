@@ -1,0 +1,13 @@
+<div>
+    <input type="button" value="start exam" (click)="start()"/>
+    <hr/>
+    <div *ngFor="let q of questionData">
+        <div>{{q.qid}} ) {{q.question}} </div>
+        <div>
+            <input type="radio" name={{q.qid}} value={{q.op1}} />{{q.op1}}
+            <input type="radio" name={{q.qid}} value={{q.op2}}/>{{q.op2}}
+            <input type="radio" name={{q.qid}} value={{q.op3}}/>{{q.op3}}
+            <input type="radio" name={{q.qid}} value={{q.op4}}/>{{q.op4}}
+        </div>
+    </div>
+</div>

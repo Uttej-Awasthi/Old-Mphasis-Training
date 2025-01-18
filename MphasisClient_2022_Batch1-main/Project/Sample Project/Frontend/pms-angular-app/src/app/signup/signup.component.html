@@ -1,0 +1,16 @@
+<div>
+    <h2>Account Create</h2>
+    <form #loginRef="ngForm" (ngSubmit)="signUp(loginRef)">
+        <label>EmailId</label>
+        <input type="email" name="emailid" ngModel/><br/>
+        <label>Password</label>
+        <input type="password" name="password" ngModel/><br/>
+        <input type="radio" name="typeOfUser" value="admin" ngModel/>Admin
+        <input type="radio" name="typeOfUser" value="user" ngModel/>User<br/>
+        <input type="submit" value="submit"/>
+        <input type="reset" value="reset"/>
+    </form>
+    <span style="color:red">{{msg}}</span>
+    <br/>
+    <a routerLink="/login">Sign In</a>
+</div>

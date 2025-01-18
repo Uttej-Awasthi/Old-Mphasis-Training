@@ -1,0 +1,13 @@
+<div>
+  <h2>Component Communication</h2>
+  <h1>Parent Component</h1>
+  <p>Parent Name in parent component is {{parentName}}</p>
+  <p>Child age in parent component is {{cAge}}</p>
+  <hr/>
+      <app-child1 [pName]="parentName"></app-child1>
+  <hr/>
+
+  <hr/>
+    <app-child2></app-child2>
+  <hr/>
+</div>

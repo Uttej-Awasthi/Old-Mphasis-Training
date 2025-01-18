@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="methods" name="Failed suite [MyTestingApplication]">
+  <test thread-count="5" parallel="methods" name="MyTest(failed)">
+    <classes>
+      <class name="test.OperationTest">
+        <methods>
+          <include name="testAdd"/>
+        </methods>
+      </class> <!-- test.OperationTest -->
+    </classes>
+  </test> <!-- MyTest(failed) -->
+</suite> <!-- Failed suite [MyTestingApplication] -->

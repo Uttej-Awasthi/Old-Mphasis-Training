@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  web:
+    image: akashkale/my-ng-angular:1.0
+    ports:
+      - "85:80"
+  springweb:
+    image: my-spring-boot
+    ports:
+      - "8181:8080"   

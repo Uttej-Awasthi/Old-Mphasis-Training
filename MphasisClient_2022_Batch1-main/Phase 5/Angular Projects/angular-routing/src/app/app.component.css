@@ -1,0 +1,16 @@
+
+ul{
+    display: flex;  
+    list-style: none;
+    align-items: center; 
+    width: 100%;
+}
+a{
+    text-decoration: none;
+    margin: 20px;
+    color: blue;
+    font-size: 20px;
+}
+a:hover{
+    background-color: yellow;
+}

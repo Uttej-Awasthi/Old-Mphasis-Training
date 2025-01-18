@@ -1,0 +1,12 @@
+<div>
+    <h2>Event Binding</h2>
+    <input type="button" value="click here" (click)="fun()"/>
+    <br/>
+    <p>{{msg}}</p>
+    <p [innerText]="msg"></p>
+    <br/>
+    Name : <input type="text" #nameRef/><br/>
+    <input type="button" value="click here" (click)="passValue(nameRef)"/>
+    <br/>
+    {{name}}
+</div>

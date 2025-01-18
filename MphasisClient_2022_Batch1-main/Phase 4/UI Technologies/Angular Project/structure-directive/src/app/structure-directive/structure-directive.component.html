@@ -1,0 +1,44 @@
+<div>
+    <h2>Structure Directive </h2>
+    <h1>Welcome to Angular Training first heading </h1>
+    <h1 *ngIf="true">Welcome to Anauglar Traing second heading</h1>
+    <h1 *ngIf="false">Welcome to Anauglar Traing third heading</h1>
+    <h1 *ngIf="f1">Welcome to Anauglar Traing fourth heading</h1>
+    <h1 *ngIf="f2">Welcome to Anauglar Traing fith heading</h1>
+    <input type="button" value="click here" (click)="changeF3Value()"/>
+    <div *ngIf="f3">
+        <h1>Welcome to Angular</h1>
+        <p>Welcome once again</p>
+    </div>
+    <hr/>
+    <input type="button" [value]="b1" (click)="toggle()"/>
+    <div *ngIf="flag">
+        <h1>Hi....</h1>
+    </div>
+    <hr/>
+    <h2>*ngFor</h2>
+    <h2>Student Names</h2>
+    <div *ngFor="let name of stdNames">
+            <p>{{name}}</p>
+    </div>
+    <h2>Student names using list tag</h2>
+    <ul>
+        <li *ngFor="let obj of stdNames">{{obj}}</li>
+    </ul>
+    <h2>Employee Details</h2>
+    <table border="1">  
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr *ngFor="let emp of employees">
+            <td>{{emp.id}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.age}}</td>
+        </tr>
+    </table>
+</div>
+
+
+

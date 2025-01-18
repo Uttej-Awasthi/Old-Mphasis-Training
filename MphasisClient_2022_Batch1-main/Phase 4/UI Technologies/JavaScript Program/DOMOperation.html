@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/JavaScript">
+        function operation() {
+           // alert("Event Fired...")
+        //1st way to get the value 
+        //var name = document.getElementsByName("user")[0].value;
+        //alert("Welcome user "+name);
+        
+        // // 2nd way to get the value 
+        // var name = document.getElementById("n1").value;
+        // alert("Welcome user "+name);
+
+        // 3rd way read and set in another text field 
+        //var pTagValue = document.getElementsByTagName("p")[0].innerHTML; // read from mtag 
+        var pTags = document.getElementsByTagName("p");
+        alert(pTags.length)
+        for(var i=0;i<pTags.length;i++){
+            alert(pTags[i].innerHTML)
+        }
+        var name = document.getElementById("n1").value; // read from textfield
+        document.getElementById("n2").value=name;       // set in text field
+        document.getElementById("n3").innerHTML=name;   // set for tag
+        }
+        function createDomData() {
+            var name = document.getElementById("uname").value
+            var pTag = document.createElement("p");     // creating p
+            var pTagValue = document.createTextNode("Mr "+name);  // content created. 
+            pTag.setAttribute("class","myClass");
+            pTag.appendChild(pTagValue);                            // content added in p tag 
+            document.getElementById("dd").appendChild(pTag);        // p added inside div tag. 
+            document.getElementById("uname").value="";
+        }
+    </script>
+    <style>
+        .myClass{background-color: orange;color: white;}
+    </style>
+</head>
+<body>
+    <p>Welcome to UI Training</p>
+    <p>Welcome to Java Script Training</p>
+    <p>Welcome to Angular Training</p>
+    <label>Name</label> : <input type="text" name="user" id="n1"/><br/>
+    <label>Welcome Msg </label> :<input type="text" name="out" id="n2" readonly/><br/>
+    <div id="n3">
+    </div>
+    <br/>
+  <input type="button" value="click here" onclick="operation()"/>  
+  <br/>
+  <hr/>
+  Name :<input type="text" id="uname"/><br/>
+  <input type="button" value="Add" onclick="createDomData()"/>
+    <div id="dd">
+
+    </div>
+</body>
+</html>

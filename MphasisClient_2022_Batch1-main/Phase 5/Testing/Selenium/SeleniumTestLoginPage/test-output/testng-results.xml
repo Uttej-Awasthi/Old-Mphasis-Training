@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-04-15T11:27:07 IST" name="Default suite" finished-at="2022-04-15T11:27:26 IST" duration-ms="18621">
+    <groups>
+    </groups>
+    <test started-at="2022-04-15T11:27:07 IST" name="Default test" finished-at="2022-04-15T11:27:26 IST" duration-ms="18621">
+      <class name="test.GooglePageTest">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:test.GooglePageTest@702b8b12]" started-at="2022-04-15T11:27:07 IST" name="beforeTest" finished-at="2022-04-15T11:27:09 IST" duration-ms="1815" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="gmailTest()[pri:0, instance:test.GooglePageTest@702b8b12]" started-at="2022-04-15T11:27:09 IST" name="gmailTest" finished-at="2022-04-15T11:27:26 IST" duration-ms="16785" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- gmailTest -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:test.GooglePageTest@702b8b12]" started-at="2022-04-15T11:27:26 IST" name="afterTest" finished-at="2022-04-15T11:27:26 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- test.GooglePageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
